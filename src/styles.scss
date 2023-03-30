@@ -1,0 +1,104 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~quill/dist/quill.snow.css";
+
+$clr-text: #353839;
+$clr-text-gray: #555;
+
+$clr-primary: #b9e7e7;
+$clr-primary-dark: teal;
+$clr-edit: #04aa6d;
+$clr-delete: #f44336;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+}
+
+html {
+    font-size: 62.5%;
+    font-family: "Roboto", sans-serif;
+    color: $clr-text;
+}
+
+body {
+    font-size: 1.6rem;
+}
+
+p {
+    line-height: 2.4rem;
+}
+
+button {
+    font-family: "Roboto", sans-serif;
+    cursor: pointer;
+}
+
+img {
+    width: 100%;
+    border-radius: 5px;
+}
+
+input {
+    font-family: "Roboto", sans-serif;
+    font-size: 1.6rem;
+}
+
+.container {
+    width: min(1024px, 95%);
+    margin: 0 auto;
+}
+
+.btn-primary {
+    width: max-content;
+    font-size: 1.6rem;
+    border: 1px solid $clr-primary-dark;
+    border-radius: 5px;
+    color: $clr-primary-dark;
+    background: transparent;
+    padding: 0.8em 1.5em;
+    cursor: pointer;
+    transition: 0.3s;
+
+    &:hover {
+        background: $clr-primary;
+        border: 1px solid $clr-primary;
+        color: $clr-text;
+    }
+}
+
+html,
+body {
+    height: 100%;
+}
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+// Angular Material
+
+// .green-snackbar {
+//     background-color: rgb(65, 252, 134) !important;
+//     color: #fff !important;
+// }
+
+// .red-snackbar {
+//     background-color: #F44336 !important;
+//     color: #fff !important;
+// }
+
+.mat-mdc-snack-bar-container {
+    --mat-mdc-snack-bar-button-color: #fff;
+    --mdc-snackbar-supporting-text-color: #fff;
+
+    &.red-snackbar {
+        --mdc-snackbar-container-color: #f44336;
+    }
+
+    &.green-snackbar {
+        --mdc-snackbar-container-color: #04aa6d;
+    }
+}

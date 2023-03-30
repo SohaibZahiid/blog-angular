@@ -1,0 +1,10 @@
+<div class="sidebar">
+    <h1>Other posts you may like</h1>
+    <div class="posts">
+        <div class="post" *ngFor="let post of posts">
+            <img src="{{post.img}}">
+            <h2>{{post.title}}</h2>
+            <button class="btn btn-primary" routerLink="/post/{{post._id}}">Read More</button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,95 @@
+<div class="add container">
+    <form [formGroup]="postForm" (ngSubmit)="createPost()">
+        <div class="content">
+            <input
+                type="text"
+                name="title"
+                placeholder="Title"
+                formControlName="title"
+            />
+            <small
+                *ngIf="submitted && postForm.get('title')!.errors?.['required']"
+                >Title is required.</small
+            >
+            <div class="editorContainer">
+                <quill-editor
+                    placeholder="Description..."
+                    class="editor"
+                    formControlName="desc"
+                ></quill-editor>
+            </div>
+
+            <small
+                *ngIf="submitted && postForm.get('desc')!.errors?.['required']"
+                >Description is required.</small
+            >
+
+            <div class="categories">
+                <ng-container *ngFor="let cat of categories">
+                    <div class="category-container">
+                        <input
+                            type="radio"
+                            name="cat"
+                            value="{{cat}}"
+                            id="{{cat}}"
+                            formControlName="cat"
+                        />
+                        <label for="{{cat}}">{{cat}}</label>
+                    </div>
+                </ng-container>
+            </div>
+
+            <small
+                *ngIf="submitted && postForm.get('cat')!.errors?.['required']"
+                >Please select a category.</small
+            >
+
+            <input type="file" id="file" (change)="handleFileInput($event)" />
+
+            <div class="buttons">
+                <button (click)="clearInputs()">Clear</button>
+                <button type="submit">{{updatePublish}}</button>
+            </div>
+        </div>
+        <!-- <div class="menu">
+            <div class="item">
+                <h2>Publish</h2>
+                <span><b>Status: </b> Draft</span>
+                <span><b>Visibility: </b> Public</span>
+
+                <input
+                    style="display: none;"
+                    type="file"
+                    id="file"
+                    formControlName="img"
+                    (change)="handleFileInput($event)"
+                />
+                <label
+                    for="file"
+                    style="text-decoration: underline; cursor: pointer;"
+                    >Upload Image</label
+                >
+
+                <div class="buttons">
+                    <button>Save as a draft</button>
+                    <button type="submit">{{updatePublish}}</button>
+                </div>
+            </div>
+            <div class="item">
+                <h2>Category</h2>
+                <ng-container *ngFor="let cat of categories">
+                    <div class="form-group">
+                        <input
+                            type="radio"
+                            name="cat"
+                            value="{{cat}}"
+                            id="{{cat}}"
+                            formControlName="cat"
+                        />
+                        <label for="{{cat}}">{{cat}}</label>
+                    </div>
+                </ng-container>
+            </div>
+        </div> -->
+    </form>
+</div>

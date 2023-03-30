@@ -1,0 +1,93 @@
+<header>
+    <!-- Logo -->
+    <div class="logo" routerLink="/home">BLOG</div>
+    <!-- Hamburger -->
+    <div class="hamburger-container">
+        <div href="#" class="hamburger" (click)="toggleHamburger()">
+            <span
+                class="hamburger-line line1"
+                [class.open]="isHamburgerOpen"
+            ></span>
+            <span
+                class="hamburger-line line2"
+                [class.open]="isHamburgerOpen"
+            ></span>
+            <span
+                class="hamburger-line line3"
+                [class.open]="isHamburgerOpen"
+            ></span>
+        </div>
+    </div>
+    <!-- Navbar -->
+    <nav class="navbar" [class.open]="isHamburgerOpen">
+        <ul>
+            <li><a routerLink="/home" (click)="closeHamburger()">POSTS</a></li>
+            <li *ngIf="currentUser?.username">
+                <a routerLink="/myPosts" (click)="closeHamburger()">MY POSTS</a>
+            </li>
+            <li *ngIf="currentUser?.username">
+                <a routerLink="/write" (click)="closeHamburger()">CREATE</a>
+            </li>
+            <button
+                *ngIf="!currentUser?.username"
+                routerLink="/login"
+                (click)="closeHamburger()"
+            >
+                Login
+            </button>
+            <button
+                *ngIf="currentUser?.username"
+                (click)="logout(currentUser)"
+                (click)="closeHamburger()"
+            >
+                Logout
+            </button>
+        </ul>
+    </nav>
+</header>
+
+<!-- <header>
+    <div class="logo" routerLink="/home">BLOG</div>
+    <nav>
+        <ul class="nav-list" [class.open]="isHamburgerOpen">
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/home">POSTS</a>
+            </li>
+            <li class="nav-item" *ngIf="currentUser?.username">
+                <a class="nav-link" routerLink="/myPosts">MY POSTS</a>
+            </li>
+            <li class="nav-item" *ngIf="currentUser?.username">
+                <a class="nav-link" routerLink="/write">CREATE POST</a>
+            </li>
+        </ul>
+    </nav>
+    <div class="right">
+        <div class="dropdown">
+            <img *ngIf="currentUser?.username" src="{{currentUser.img}}" />
+            <div class="dropdown-content">
+                <a (click)="logout(currentUser)">Logout</a>
+            </div>
+        </div>
+
+        <button *ngIf="!currentUser?.username" routerLink="/login">
+            Login
+        </button>
+
+        <div class="hamburger-container">
+            <div class="hamburger" (click)="openHamburger()">
+                <div
+                    class="hamburger-line line1"
+                    [class.open]="isHamburgerOpen"
+                ></div>
+                <div
+                    class="hamburger-line line2"
+                    [class.open]="isHamburgerOpen"
+                ></div>
+                <div
+                    class="hamburger-line line3"
+                    [class.open]="isHamburgerOpen"
+                ></div>
+            </div>
+        </div>
+    </div>
+</header> -->

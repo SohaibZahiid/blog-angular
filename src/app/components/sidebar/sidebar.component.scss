@@ -1,0 +1,33 @@
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em;
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    .posts {
+        display: flex;
+        flex-direction: column;
+        gap: 4em;
+
+        .post {
+            display: flex;
+            flex-direction: column;
+            gap: 1em;
+
+            img {
+                height: 200px;
+                object-fit: cover;
+            }
+        }
+    }
+}
+
+@media (max-width: 868px) {
+    .posts {
+        display: grid !important;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+}

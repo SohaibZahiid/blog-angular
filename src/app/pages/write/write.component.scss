@@ -1,0 +1,58 @@
+@import "../../../styles.scss";
+
+.add {
+    padding-block: 5em;
+
+    .content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 20px;
+
+        input {
+            padding: 10px;
+            border: 1px solid lightgray;
+            outline: none;
+        }
+
+        .categories {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2em;
+
+            .category-container {
+                display: flex;
+                gap: 0.3em;
+            }
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: space-between;
+
+            button {
+                font-size: 1.6rem;
+                padding: 0.5em 1.5em;
+                border: 1px solid lightgray;
+                outline: none;
+                border-radius: 5px;
+
+                &:first-child {
+                    background: transparent;
+                    color: $clr-primary-dark;
+                    border: 1px solid $clr-primary-dark;
+                }
+
+                &:last-child {
+                    background: $clr-primary-dark;
+                    color: #fff;
+                    border: 1px solid $clr-primary-dark;
+                }
+            }
+        }
+
+        small {
+            color: red;
+        }
+    }
+}

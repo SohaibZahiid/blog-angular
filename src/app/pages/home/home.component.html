@@ -1,0 +1,21 @@
+<div class="posts container">
+    <ng-container *ngIf="posts">
+        <article class="post" *ngFor="let post of posts">
+            <div class="img">
+                <img src="{{post.img}}" />
+            </div>
+            <div class="content">
+                <h1>{{post.title}}</h1>
+                <p
+                    [innerHTML]="(post.desc | slice:0:300) + (post.desc.length > 300 ? '...' : '')  | sanitizeHtml"
+                ></p>
+                <button class="btn btn-primary" routerLink="/post/{{post._id}}">
+                    Read More
+                </button>
+            </div>
+        </article>
+    </ng-container>
+    <ng-container *ngIf="!loading && posts.length == 0">
+        <h2 style="text-align: center;">0 posts found.</h2>
+    </ng-container>
+</div>
